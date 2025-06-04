@@ -1,0 +1,324 @@
+/* Базовые сбросы и переменные */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  min-height: 100vh;
+  background-color: var(--color-light);
+  font-family: Arial, sans-serif;
+  line-height: 1.6;
+}
+
+img {
+  max-width: 100%;
+  height: auto;
+  display: block;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+ul, ol {
+  list-style: none;
+}
+
+/* Header */
+.header {
+  padding: var(--gap-medium) 0;
+  background-color: var(--color-white);
+  box-shadow: var(--shadow-small);
+  position: sticky;
+  top: 0;
+  z-index: 100;
+}
+
+.header__container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--gap-medium);
+}
+
+.header__nav {
+  display: flex;
+  gap: var(--gap-large);
+}
+
+.header__contacts {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-small);
+  text-align: right;
+}
+
+/* Cover */
+.cover {
+  background:
+    url('../img/lotus-flower.png') center/cover no-repeat;
+  position: relative;
+  width: 100%;
+  min-height: 100vh;
+  padding: var(--gap-xl);
+  color: var(--color-white);
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+
+/* Затемняющий слой */
+.cover::before {
+  content: "";
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background-color: rgba(0, 0, 0, 0.6);
+  z-index: 0;
+}
+
+/* Все дочерние элементы поднимаем выше затемняющего слоя */
+.cover > * {
+  position: relative;
+  z-index: 1;
+}
+
+/* Остальные стили для содержимого cover */
+.cover__title-container {
+  font-size: clamp(2rem, 10vw, 5rem);
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-small);
+  margin-bottom: var(--gap-xl);
+}
+
+.cover__title_left {
+  align-self: flex-start;
+}
+
+.cover__title_center {
+  align-self: center;
+}
+
+.cover__title_right {
+  align-self: flex-end;
+}
+
+.cover__description {
+  display: flex;
+  justify-content: space-between;
+  align-items: flex-end;
+  margin-top: auto;
+}
+
+.cover__button {
+  padding: var(--gap-small) var(--gap-large);
+  background-color: var(--color-accent);
+  color: var(--color-white);
+  border: none;
+  cursor: pointer;
+  font-weight: bold;
+  text-transform: uppercase;
+  transition: background-color 0.3s;
+  font-size: 1rem;
+}
+
+.cover__button:hover {
+  background-color: #cc0000;
+}
+
+/* Lots */
+.lots {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--gap-large);
+}
+
+.lots__heading {
+  font-size: 2rem;
+  margin-bottom: var(--gap-large);
+  text-align: left;
+  color: var(--color-text);
+}
+
+.lots__list {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+  gap: var(--gap-large);
+  margin: var(--gap-large) 0;
+  list-style: none;
+  padding: 0;
+}
+
+.lots__item {
+  height: 596px;
+  weight: 334px;
+}
+
+.lot {
+  position: relative;
+  height: 100%;
+  min-height: 300px;
+  background-size: cover;
+  background-position: center;
+  display: flex;
+  flex-direction: column; /* Колонка для разделения заголовка и описания */
+  justify-content: space-between; /* Заголовок вверху, описание внизу */
+}
+
+.lot::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background: rgba(0, 0, 0, 0.6);
+  z-index: 1;
+}
+
+.lot__content {
+  position: relative;
+  z-index: 2;
+  padding: var(--gap-medium);
+  color: white;
+  text-align: left;
+}
+
+.lot__title {
+  margin: var(--gap-medium) 0 0 var(--gap-medium); /* Отступы: сверху и слева */
+  text-align: left;
+  align-self: flex-start; /* Прижимаем к левому краю */
+  font-size: 1.25rem;
+  font-weight: 700;
+  margin-bottom: var(--gap-small);
+  color: white;
+}
+
+.lot__description {
+  margin: 0 var(--gap-medium) var(--gap-medium) var(--gap-medium);
+  margin-bottom: var(--gap-medium);
+}
+
+.lots__more-link {
+  display: inline-block;
+  margin-top: var(--gap-medium);
+  color: var(--color-text);
+  text-decoration: none;
+  font-weight: bold;
+}
+
+.lots__more-link:hover {
+  text-decoration: underline;
+}
+
+/* About */
+.about {
+  display: grid;
+  grid-template-columns: 1fr 2fr;
+  gap: var(--gap-large);
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: var(--gap-xl) var(--gap-medium);
+  background-color: var(--color-white);
+}
+
+.about__logo {
+  width: 240px;
+  height: 240px;
+  background-color: var(--color-accent);
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin: 0 auto;
+  color: white;
+  font-size: 2rem;
+  font-weight: bold;
+}
+
+.about__content {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-medium);
+}
+
+.about__title {
+  font-size: 2rem;
+  margin-bottom: var(--gap-small);
+}
+
+/* Footer */
+.footer {
+  background-color: var(--color-dark);
+  color: var(--color-white);
+  padding: var(--gap-large) 0;
+}
+
+.footer__container {
+  display: flex;
+  justify-content: space-between;
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 var(--gap-medium);
+}
+
+.footer__social-links {
+  display: flex;
+  gap: var(--gap-medium);
+}
+
+.footer__nav {
+  display: flex;
+  flex-direction: column;
+  gap: var(--gap-small);
+}
+
+.footer__copyright {
+  opacity: 0.7;
+  text-align: center;
+  margin-top: var(--gap-large);
+}
+
+/* Адаптивность */
+@media (max-width: 768px) {
+  .header__container {
+    flex-direction: column;
+    gap: var(--gap-medium);
+  }
+
+  .cover__title-container {
+    font-size: clamp(1.5rem, 8vw, 3rem);
+  }
+
+  .cover__description {
+    flex-direction: column;
+    gap: var(--gap-medium);
+    align-items: flex-start;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    text-align: center;
+  }
+
+  .footer__container {
+    flex-direction: column;
+    gap: var(--gap-large);
+    align-items: center;
+    text-align: center;
+  }
+
+  .lots__list {
+    grid-template-columns: 1fr;
+  }
+}
