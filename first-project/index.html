@@ -11,21 +11,24 @@
 </head>
 <body>
 
-    <header class="header">
-      <form class="form header__form">
-        <nav class="info header__nav">
-          <p class="header__nav-item">главная</p>
-          <a class="header__nav-item">посмотреть лоты</a>
-          <a class="header__nav-item">об аукционе</a>
-        </nav>
-        <a href="#" class="header__logo"></a>
-        <address class="info header__contacts">
-          <a class="header__contact-item">+9 999 555 5555</a>
-          <a class="header__contact-item">info@sobaka.ge</a>
-          <p class="header__contact-item">наб. Принсенграхт 263- 265, Амстердам</p>
-        </address>
-      </form>
-    </header>
+      <header class="header">
+        <div class="header__container">
+          <nav class="header__nav">
+            <a href="#">главная</a>
+            <a href="#">посмотреть лоты</a>
+            <a href="#">об аукционе</a>
+          </nav>
+          <div  class="header__logo">
+            <img src="img/logo.png" alt="Логотип аукциона" class="header__logo-image">
+          </div>
+
+          <div class="header__contacts">
+            <div class="links">+9 999 555 5555</div>
+            <div class="links">info@sobaka.ge</div>
+            <div class="header__address">наб. Принсентрахт 263-265. Амстердам</div>
+          </div>
+        </div>
+      </header>
 
     <main class="main">
 
@@ -61,7 +64,7 @@
               <div class="lot__content">
                 <h3 class="lot__title">Книга, где описан один скучный день из жизни рекламного агента</h3>
                 <p class="lot__description">
-                  Объёмом почти в тысячу страниц. Иногда без знаков препинания и с переходами на древнеанглийский. В ней одновременно рассказывается о 16 июня 1904 года и об истории литературы.
+                  Объёмом почти в тысячу страниц. Иногда без знаков препинания и с переходами на древнеанглийский. В ней одновременно рассказывается о 16 июня 1904 года и об истории литературы, начиная с античных времён. И это всё накладывается на эпическую поэму Гомера. Сколько бы вы поставили на «Улисса» Джеймса Джойса?
                 </p>
               </div>
             </div>
@@ -71,13 +74,13 @@
               <div class="lot__content">
                 <h3 class="lot__title">Картина, которую повторит даже 5-летний сын маминой подруги</h3>
                 <p class="lot__description">
-                  Ну действительно, там линия, тут кружочек, а здесь и вовсе что-то похожее на инфузорию-туфельку. Никаких полей, лесов, котиков...
+                  Ну действительно, там линия, тут кружочек, а здесь и вовсе что-то похожее на инфузорию-туфельку. Никаких полей, лесов, котиков... Сколько бы вы на такое поставили, если бы не знали, что это — одна из революционных работ Кандинского?
                 </p>
               </div>
             </div>
           </li>
         </ul>
-        <a class="lots__more-link">посмотреть больше</a>
+        <a class="links">посмотреть больше</a>
       </section>
 
       <!--Об аукционе-->
@@ -102,19 +105,25 @@
     </main>
 
     <footer class="footer">
-        <div class="footer__container">
-            <div class="footer__social-links">
-                <a href="#" class="social-link"><i class="fab fa-facebook"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-twitter"></i></a>
-                <a href="#" class="social-link"><i class="fab fa-instagram"></i></a>
-            </div>
-            <nav class="footer__nav">
-              <a class="footer__nav-item">главная</a>
-              <a class="footer__nav-item">посмотреть лоты</a>
-              <a class="footer__nav-item">об аукционе</a>
-            </nav>
-            <p class="footer__copyright">© 2023 МойСайт</p>
+      <div class="footer__container">
+        <div class="footer__contacts">
+          <a href="#"><div class="links">+9 999 555 5555</div></a>
+          <a href="#"><div class="links">info@sobaka.ge</div></a>
+          <div class="footer__address">наб. Принсентрахт 263-265.<br>Амстердам</div>
         </div>
+
+        <nav class="footer__nav">
+          <a href="#">главная</a>
+          <a href="#" class="links">посмотреть лоты</a>
+          <a href="#" class="links">об аукционе</a>
+        </nav>
+
+        <div  class="footer__social-links">
+          <a href="#"><img src="img/YouTube.png" alt="Логотип Ютуба" class="footer__social-link"></a>
+          <a href="#"><img src="img/VK.png" alt="Логотип ВК" class="footer__social-link"></a>
+          <a href="#"><img src="img/Pinterest.png" alt="Логотип Пинтрест" class="footer__social-link"></a>
+        </div>
+      </div>
     </footer>
 </body>
 </html>

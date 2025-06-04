@@ -9,10 +9,11 @@
 
 body {
   min-height: 100vh;
-  background-color: var(--color-light);
-  font-family: Arial, sans-serif;
+  background-color: white;
+  font-family: 'Raleway', sans-serif;
   line-height: 1.6;
 }
+
 
 img {
   max-width: 100%;
@@ -31,12 +32,14 @@ ul, ol {
 
 /* Header */
 .header {
-  padding: var(--gap-medium) 0;
+  padding: 187px;
   background-color: var(--color-white);
   box-shadow: var(--shadow-small);
-  position: sticky;
+  /*position: sticky;*/ /*раскоментить эту строчку, чтобы header фиксировался во время скрола*/
   top: 0;
   z-index: 100;
+  font-family: Raleway, Arial;
+  font-size: 18px;
 }
 
 .header__container {
@@ -53,19 +56,46 @@ ul, ol {
   gap: var(--gap-large);
 }
 
+.header__nav a {
+  text-decoration: none;
+  text-transform: lowercase;
+}
+
+.header__nav a:not(:last-child)::after {
+  content: " • ";
+  margin-left: var(--gap-large);
+}
+
 .header__contacts {
   display: flex;
   flex-direction: column;
   gap: var(--gap-small);
   text-align: right;
+  font-size: 14px;
+}
+
+.header__logo {
+  width: 120px;
+  height: auto;
+}
+
+.header__logo-image {
+  width: 100%;
+  height: auto;
+}
+
+.header__logo-image:hover {
+  opacity: 0.8;
 }
 
 /* Cover */
 .cover {
+  margin-bottom: 180px;
   background:
     url('../img/lotus-flower.png') center/cover no-repeat;
   position: relative;
   width: 100%;
+  height: 751px;
   min-height: 100vh;
   padding: var(--gap-xl);
   color: var(--color-white);
@@ -94,7 +124,7 @@ ul, ol {
 
 /* Остальные стили для содержимого cover */
 .cover__title-container {
-  font-size: clamp(2rem, 10vw, 5rem);
+  font-size: 100px;
   display: flex;
   flex-direction: column;
   gap: var(--gap-small);
@@ -120,9 +150,13 @@ ul, ol {
   margin-top: auto;
 }
 
+.cover__subtitle{
+  font-size: 22px;
+}
+
 .cover__button {
   padding: var(--gap-small) var(--gap-large);
-  background-color: var(--color-accent);
+  background-color: transparent;
   color: var(--color-white);
   border: none;
   cursor: pointer;
@@ -130,16 +164,15 @@ ul, ol {
   text-transform: uppercase;
   transition: background-color 0.3s;
   font-size: 1rem;
-}
-
-.cover__button:hover {
-  background-color: #cc0000;
+  border: 2px solid white;
+  font-size: 22px;
 }
 
 /* Lots */
 .lots {
   max-width: 1200px;
   margin: 0 auto;
+  margin-bottom: 209px;
   padding: var(--gap-large);
 }
 
@@ -171,8 +204,8 @@ ul, ol {
   background-size: cover;
   background-position: center;
   display: flex;
-  flex-direction: column; /* Колонка для разделения заголовка и описания */
-  justify-content: space-between; /* Заголовок вверху, описание внизу */
+  flex-direction: column;
+  justify-content: space-between;
 }
 
 .lot::before {
@@ -191,13 +224,13 @@ ul, ol {
   z-index: 2;
   padding: var(--gap-medium);
   color: white;
-  text-align: left;
+  display: flex;
+  flex-direction: column;
+  height: 100%; /* Занимает всю высоту родителя */
+  justify-content: space-between;
 }
 
 .lot__title {
-  margin: var(--gap-medium) 0 0 var(--gap-medium); /* Отступы: сверху и слева */
-  text-align: left;
-  align-self: flex-start; /* Прижимаем к левому краю */
   font-size: 1.25rem;
   font-weight: 700;
   margin-bottom: var(--gap-small);
@@ -205,17 +238,9 @@ ul, ol {
 }
 
 .lot__description {
-  margin: 0 var(--gap-medium) var(--gap-medium) var(--gap-medium);
-  margin-bottom: var(--gap-medium);
+  margin-top: auto;
 }
 
-.lots__more-link {
-  display: inline-block;
-  margin-top: var(--gap-medium);
-  color: var(--color-text);
-  text-decoration: none;
-  font-weight: bold;
-}
 
 .lots__more-link:hover {
   text-decoration: underline;
@@ -228,6 +253,7 @@ ul, ol {
   gap: var(--gap-large);
   max-width: 1200px;
   margin: 0 auto;
+  margin-bottom: 277px;
   padding: var(--gap-xl) var(--gap-medium);
   background-color: var(--color-white);
 }
@@ -235,7 +261,6 @@ ul, ol {
 .about__logo {
   width: 240px;
   height: 240px;
-  background-color: var(--color-accent);
   border-radius: 50%;
   display: flex;
   align-items: center;
@@ -259,66 +284,71 @@ ul, ol {
 
 /* Footer */
 .footer {
-  background-color: var(--color-dark);
-  color: var(--color-white);
+  background-color: var(--color-white);
+  color: var(--color-dark);
   padding: var(--gap-large) 0;
+  font-family: 'Raleway', sans-serif;
 }
 
 .footer__container {
   display: flex;
   justify-content: space-between;
+  align-items: center;
+  gap: var(--gap-large);
   max-width: 1200px;
   margin: 0 auto;
   padding: 0 var(--gap-medium);
 }
 
-.footer__social-links {
-  display: flex;
-  gap: var(--gap-medium);
-}
-
-.footer__nav {
+.footer__contacts {
   display: flex;
   flex-direction: column;
   gap: var(--gap-small);
+  text-align: left;
 }
 
-.footer__copyright {
-  opacity: 0.7;
+.footer__address {
+  font-weight: 400;
+  line-height: 1.4;
+}
+
+.footer__nav {
+  color: black;
+  display: flex;
+  flex-direction: column;
   text-align: center;
-  margin-top: var(--gap-large);
+  justify-content: center;
+  gap: var(--gap-medium);
+  flex-wrap: wrap;
 }
 
-/* Адаптивность */
-@media (max-width: 768px) {
-  .header__container {
-    flex-direction: column;
-    gap: var(--gap-medium);
-  }
+.footer__nav-link {
+  color: black;
+  text-decoration: none;
+  font-weight: 600;
+  text-transform: lowercase;
+  transition: opacity 0.3s;
+}
 
-  .cover__title-container {
-    font-size: clamp(1.5rem, 8vw, 3rem);
-  }
+.footer__nav-link:hover {
+  opacity: 0.8;
+}
 
-  .cover__description {
-    flex-direction: column;
-    gap: var(--gap-medium);
-    align-items: flex-start;
-  }
+.footer__social-links {
+  display: flex;
+  flex-direction: row;
+  justify-content: center;
+  gap: var(--gap-medium);
+}
 
-  .about {
-    grid-template-columns: 1fr;
-    text-align: center;
-  }
+.footer__social-link {
+  width: 48px;
+  height: 48px;
+  color: black;
+  font-size: 1.2rem;
+  transition: opacity 0.3s;
+}
 
-  .footer__container {
-    flex-direction: column;
-    gap: var(--gap-large);
-    align-items: center;
-    text-align: center;
-  }
-
-  .lots__list {
-    grid-template-columns: 1fr;
-  }
+.footer__social-link:hover {
+  opacity: 0.8;
 }
